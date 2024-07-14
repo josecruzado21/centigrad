@@ -59,19 +59,25 @@ class Variable:
     def exp(self):
         result = Variable(math.exp(self.value))
         self.parents.append(result)
-        self.gradients.append(math.exp(self.value))
+        self.gradients.append(result)
         return result
     
     def sigmoid(self):
-        result = (1) / (1 + (-self).exp())
+        result = Variable((1) / (1 + (math.exp(-self.value))))
         self.parents.append(result)
-        self.gradients.append(((self.parents.value)*(1-self.parents.value)))
+        self.gradients.append((result.value)*(1-result.value))
         return result
     
     def relu(self):
         result = Variable(max(0, self.value))
         self.parents.append(result)
         self.gradients.append(1 if (self.value > 0) else 0)
+        return result
+
+    def linear(self):
+        result = Variable(self.value)
+        self.parents.append(result)
+        self.gradients.append(1)
         return result
     
     def grad(self):
