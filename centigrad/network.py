@@ -1,4 +1,6 @@
-class NeuralNetwork:
+from .layer import Layer
+
+class Network:
     def __init__(self, 
                  input_dim, 
                  dimension, 
@@ -23,7 +25,7 @@ class NeuralNetwork:
                                         initial_weights = initial_weights[idx] if initial_weights is not None else None,
                                         initial_biases = initial_biases[idx] if initial_biases is not None else None))
         else:
-            raise("NeuralNetwork should be at least 1 deep long")
+            raise("The network should be at least 1 deep long")
     
     
     def cost(self,X, y):

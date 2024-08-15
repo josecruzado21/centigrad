@@ -1,4 +1,5 @@
-from variable import Variable
+from .variable import Variable
+import numpy as np
 
 class Layer:
     def __init__(self, 
