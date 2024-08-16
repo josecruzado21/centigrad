@@ -1,4 +1,6 @@
 from .layer import Layer
+from tqdm import tqdm
+import numpy as np
 
 class Network:
     """
@@ -76,3 +78,55 @@ class Network:
         for layer in self.layers:
             input_data = layer.forward(input_data)
         return input_data
+    
+    def fit(self, X, y, epochs, learning_rate):
+        """
+        Trains the neural network by iteratively adjusting the weights and biases
+        using backpropagation over a specified number of epochs.
+        
+        Parameters:
+        -----------
+        X : np.ndarray
+            The input data for training.
+        y : np.ndarray
+            The target labels corresponding to the input data.
+        epochs : int
+            The number of iterations to train the neural network.
+        learning_rate : float
+            The step size used for updating the weights and biases during training.
+        
+        Returns:
+        --------
+        self : object
+            Returns the instance of the model after training.
+        """
+        epoch_losses = [self.cost(X, y)]
+        for _ in tqdm(range(epochs)):
+            for lay in self.layers:
+                gradients = lay.backward()
+                lay.weights = lay.weights - learning_rate*gradients[0]
+                lay.biases = lay.biases - learning_rate*gradients[1]
+            epoch_losses.append(self.cost(X,y))
+        self.epoch_losses = epoch_losses
+        return self
+    
+def predict(self, X):
+    """
+    Makes predictions on the input data using the trained neural network.
+    
+    Parameters:
+    -----------
+    X : np.ndarray
+        The input data for which predictions are to be made.
+    
+    Returns:
+    --------
+    np.ndarray
+        The predicted output values for the input data.
+    """
+    output = X
+    for layer in self.layers:
+        output = layer.forward(output)
+    
+    return output
+        
