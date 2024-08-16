@@ -69,7 +69,7 @@ class Variable:
             # If it is not Variable but it is numeric, a new Variable object is created with the value
             # equal to `other_value`
             other_value = Variable(value = other_value)
-        else:
+        elif (not isinstance(other_value, Variable)) & (type(other_value) not in [int, float]):
             raise("Summation cannot be performed with a non-numeric data type")
         
         # Then, a new Variable is created with value equal to the sum of the value of our current Variable
@@ -122,7 +122,7 @@ class Variable:
             # If it is not Variable but it is numeric, a new Variable object is created with the value
             # equal to `other_value`
             other_value = Variable(value = other_value)
-        else:
+        elif (not isinstance(other_value, Variable)) & (type(other_value) not in [int, float]):
             raise("Multiplication cannot be performed with a non-numeric data type")
         
         # Then, a new Variable is created with value equal to the product of the value of our current Variable

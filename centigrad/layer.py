@@ -71,11 +71,11 @@ class Layer:
         np.ndarray
             The output of the layer after applying the linear combination and activation function.
         """
-        # First the input and output dimensions are obtained
-        # TO DO: is it really necessary?
-        # self.input_dim = input_data.shape[0]
-        # self.output_dim = input_data.shape[1]
-
+        # To guarantee that if the forward methos is called multiple times, the number of parents
+        # do not grow but stay the same, the weights are replaced by its value itself
+        self.weights = self.weights + 0
+        self.biases = self.biases + 0
+        
         # The weighted sum is the calculated
         linear_combination = np.matmul(self.weights.T, input_data) + self.biases
 

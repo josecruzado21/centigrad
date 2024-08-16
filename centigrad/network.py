@@ -110,23 +110,23 @@ class Network:
         self.epoch_losses = epoch_losses
         return self
     
-def predict(self, X):
-    """
-    Makes predictions on the input data using the trained neural network.
-    
-    Parameters:
-    -----------
-    X : np.ndarray
-        The input data for which predictions are to be made.
-    
-    Returns:
-    --------
-    np.ndarray
-        The predicted output values for the input data.
-    """
-    output = X
-    for layer in self.layers:
-        output = layer.forward(output)
-    
-    return output
+    def predict(self, X):
+        """
+        Makes predictions on the input data using the trained neural network.
+        
+        Parameters:
+        -----------
+        X : np.ndarray
+            The input data for which predictions are to be made.
+        
+        Returns:
+        --------
+        np.ndarray
+            The predicted output values for the input data.
+        """
+        output = X
+        for layer in self.layers:
+            output = layer.forward(output)
+        
+        return output
         
