@@ -6,8 +6,6 @@ Following Andrej's examples of building things from scratch, I decided to pause 
 
 It is important to notice that I made this replication with almost null notion of TensorFlow or Pytorch frameworks. After I reached a stable state of my solution I finished watching Andrej's video. I may do similar replications of the rest of his series.
 
-# Installation
-
 
 
 
