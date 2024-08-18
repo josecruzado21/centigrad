@@ -4,4 +4,4 @@ This is a project that begun as a blind replication of Andrej Kharpaty's micogra
 
 Following Andrej's examples of building things from scratch, I decided to pause the video, grasps some important concepts from the minutes I watched and keep the development myself to then compare my solution to his. I was surprised to find similitudes between our solutions, which I will comment later.
 
-It is important to notice that I made this replication with almost null notion of TensorFlow or Pytorch frameworks. After I reached a stable state of my solution I finished watching Andrej's video. I may do similar replications of the rest of his series.
+I made this replication with almost null notion of TensorFlow or Pytorch frameworks. After I reached a stable state of my solution I finished watching Andrej's video. I may do similar replications of the rest of his series.
