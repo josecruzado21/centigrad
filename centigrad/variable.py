@@ -75,7 +75,6 @@ class Variable:
         # Then, a new Variable is created with value equal to the sum of the value of our current Variable
         # and the value of `other_value`
         result = Variable(value = self.value + other_value.value)
-
         # Then the parents of the current Variable and `other_value` (if applicable) are updated
         # to contain the result
         self.parents.append(result)

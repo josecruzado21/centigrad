@@ -30,6 +30,7 @@ class Layer:
         self.activation = activation
 
         # Initial weights setting
+        # TO DO: Validate if the initial weights have the required dimension
         if initial_weights is not None:
             self.weights = initial_weights
         else:
@@ -38,6 +39,7 @@ class Layer:
         self.weights = np.vectorize(Variable)(self.weights)
 
         # Initial biases setting
+        # TO DO: Validate if the initial biases have the required dimension
         if initial_biases is not None:
             self.biases = initial_biases
         else:
