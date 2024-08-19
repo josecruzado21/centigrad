@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
 name='centigrad',
-version='0.1.0',
+version='0.1.1',
 author='Jose Cruzado',
 author_email='josecruzado2103@gmail.com',
 description='This is a simple package to train neural networks leveraging a Variable object that supports automatic differentiation',
@@ -13,4 +13,8 @@ classifiers=[
 'Operating System :: OS Independent',
 ],
 python_requires='>=3.6',
+install_requires=[
+    "tqdm",
+    "numpy"
+],
 )
