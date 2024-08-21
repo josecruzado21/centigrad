@@ -73,6 +73,30 @@ print("Initial loss:", "{:.20f}".format(nn.epoch_losses[0]))
 print(f"Final loss after {len(nn.epoch_losses)-1} epocs:", "{:.20f}".format(nn.epoch_losses[-1]))
 ```
 
+# Centigrad vs Micrograd
+
+## Comparison
+
+- In micrograd, the `Value` object tracks the children used to create that `Value`. In centigrad, however, each `Variable` object (the equivalent of `Value` in micrograd) tracks its immediate parents instead. While I don't recall the exact reason for this design choice, I believe it was to avoid issues when the same Variable is used multiple times in an expression. One downside of storing parents is that when a `Variable` is used in an expression, even if the expression is not saved, the parents and gradients are still affected.
+- In centigrad, the operation that generated the Variable is not recorded, unlike in micrograd. I believe the only reason it's retained in micrograd is for visualizacion purposes. 
+- Centigrad does not include visualization functionality. While the micrograd package also lacks this feature, Andrej included a function for it in one of the example notebooks.
+- Micrograd saves in each `Value` object the gradient of the root node (e.g the loss function) with respect to that particular `Value`. In centigrad, only the local gradients (the derivative of each parent with respect to the `Variable`) are saved.
+- In micrograd, the gradient is an attribute that gets updated each time the `backward()` method is called. In centigrad, however, the gradient (`grad()`) is a method that must be called each time you want to calculate the gradient of the root node (e.g., the loss function). One advantage of Andrej's approach is that the gradients are calculated only once at each level of the graph, whereas in centigrad, these gradients are recalculated each time the grad() method is called, which can lead to redundancy. However, Andrej's approach requires an additional function to perform the topological sorting of the nodes.
+- In centigrad, there's no need to implement a topological sort as required in micrograd.
+- centigrad is not prone to the `zero_grad()` omision, as the gradients are (inefficiently) calculated from scratch each time.
+- centigrad uses numpy's matrix algebra
+
+## Centigrad's additional features
+- Centigrad allows for flexible use of activation function, while micrograd only support `ReLu`.
+- Centigrad supports for the passing of initial weights and biases in each layer.
+- Centigrad implements `fit()` and `predict()` methods in the `Network` class.
+
+
+
+
+
+
+
 # License
 
 MIT
