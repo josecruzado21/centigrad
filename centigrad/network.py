@@ -61,7 +61,8 @@ class Network:
         """
         prediction = self.forward(X)
         if self.cost_function == "mse":
-            return (((prediction - y)**2).sum().value)/(y.shape[1])
+            cost = (((prediction - y)**2).sum())/(y.shape[1])
+            return cost.value
                       
     def forward(self, input_data):
         """
