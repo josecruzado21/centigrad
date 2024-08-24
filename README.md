@@ -91,11 +91,9 @@ print(f"Final loss after {len(nn.epoch_losses)-1} epocs:", "{:.20f}".format(nn.e
 - Centigrad supports for the passing of initial weights and biases in each layer.
 - Centigrad implements `fit()` and `predict()` methods in the `Network` class.
 
+# TO DOs
 
-
-
-
-
+- Refactor to avoid redundant calculation of gradients
 
 # License
 
