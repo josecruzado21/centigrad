@@ -1,10 +1,10 @@
 # centigrad
 
-This project began as a blind replication of Andrej Karpathy's micrograd repository(https://github.com/karpathy/micrograd/tree/master). I call it a "blind replication" because I initially started by watching Andrej's YouTube video, [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ), from his "Neural Networks: Zero to Hero series".
+This project began as a blind replication of Andrej Karpathy's micrograd [repository](https://github.com/karpathy/micrograd/tree/master). I call it a "blind replication" because I initially started by watching Andrej's YouTube video, [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ), from his "Neural Networks: Zero to Hero series".
 
 Inspired by Andrej's approach to building things from scratch, I watched the video for a while, grasping key concepts and details, before pausing it to begin my own replication, intending to later compare my solution with his. After reaching a stable state in my implementation, I returned to Andrej's video. To my surprise, I found notable similarities between our approaches, which I will discuss further in this document. I may consider undertaking similar replications for the rest of his series.
 
-At the time of this replication, I had little to no experience with TensorFlow or PyTorch. After reaching a stable state in my implementation, I returned to Andrej's video to complete it. I may consider undertaking similar replications for the rest of his series.
+At the time of this replication, I had little to no experience with TensorFlow or PyTorch.
 
 # Installation
 
